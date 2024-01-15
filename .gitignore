@@ -1,0 +1,13 @@
+# STM32CubeIDE codegen
+
+*.ld
+Core
+Drivers
+Middlewares
+
+# STM32CubeIDE
+
+.mxproject
+.settings
+Debug
+Release
