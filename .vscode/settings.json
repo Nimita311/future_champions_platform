@@ -14,4 +14,5 @@
     "editor.rulers": [
         80, 120
     ],
+    "C_Cpp.autoAddFileAssociations": false,
 }
