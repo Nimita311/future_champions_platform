@@ -12,3 +12,7 @@ Middlewares
 .settings
 Debug
 Release
+
+# macOS
+
+.DS_Store
