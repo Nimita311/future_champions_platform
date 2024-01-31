@@ -1,5 +1,9 @@
 #pragma once
 
+#include "platform/digital_input/pulse_counter.hh"
+#include "platform/digital_output/pulse_generator.hh"
+#include "platform/pwm_output/pwm_output.hh"
+
 namespace fcp::platform {
 
 /**
@@ -27,6 +31,19 @@ class Robot {
  public:
   Robot(const Robot&) = delete;
   void operator=(const Robot&) = delete;
+  Robot(Robot&&) = delete;
+  void operator=(Robot&&) = delete;
+
+  const PulseGenerator<> led_green;
+  const PulseGenerator<> led_yellow;
+  const PulseGenerator<> led_red;
+
+  const PulseCounter button;
+
+  const PWMOutput pwm_1;
+  const PWMOutput pwm_2;
+  const PWMOutput pwm_3;
+  const PWMOutput pwm_4;
 
   /**
    * @brief Gets the instance of this singleton class.
