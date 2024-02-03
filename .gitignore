@@ -1,0 +1,18 @@
+# STM32CubeIDE codegen
+
+*.ld
+Core
+Drivers
+Middlewares
+
+# STM32CubeIDE
+
+*.launch
+.mxproject
+.settings
+Debug
+Release
+
+# macOS
+
+.DS_Store
