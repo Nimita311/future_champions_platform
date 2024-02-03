@@ -1,5 +1,7 @@
 #pragma once
 
+#include "autonomy/motor/diff_drive.hh"
+#include "autonomy/motor/motor.hh"
 #include "platform/digital_input/pulse_counter.hh"
 #include "platform/digital_output/pulse_generator.hh"
 #include "platform/pwm_output/pwm_output.hh"
@@ -40,10 +42,18 @@ class Robot {
 
   const PulseCounter button;
 
-  const PWMOutput pwm_1;
-  const PWMOutput pwm_2;
-  const PWMOutput pwm_3;
-  const PWMOutput pwm_4;
+  // Drive train
+
+ private:
+  const PWMOutput pwm_left_drive;
+  const PWMOutput pwm_left_reverse;
+  const PWMOutput pwm_right_drive;
+  const PWMOutput pwm_right_reverse;
+
+ public:
+  const aut::Motor motor_left;
+  const aut::Motor motor_right;
+  const aut::DiffDrive diff_drive;
 
   /**
    * @brief Gets the instance of this singleton class.

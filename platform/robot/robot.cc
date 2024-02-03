@@ -18,9 +18,12 @@ Robot::Robot()
       led_yellow{GPIOE, GPIO_PIN_1},
       led_red{GPIOB, GPIO_PIN_14},
       button{GPIOC, GPIO_PIN_13},
-      pwm_1{&htim3, TIM_CHANNEL_1},
-      pwm_2{&htim3, TIM_CHANNEL_2},
-      pwm_3{&htim3, TIM_CHANNEL_3},
-      pwm_4{&htim3, TIM_CHANNEL_4} {}
+      pwm_left_drive{&htim3, TIM_CHANNEL_1},
+      pwm_left_reverse{&htim3, TIM_CHANNEL_2},
+      pwm_right_drive{&htim3, TIM_CHANNEL_3},
+      pwm_right_reverse{&htim3, TIM_CHANNEL_4},
+      motor_left{pwm_left_drive, pwm_left_reverse},
+      motor_right{pwm_right_drive, pwm_right_reverse},
+      diff_drive{motor_left, motor_right} {}
 
 }  // namespace fcp::platform
