@@ -1,7 +1,11 @@
 #pragma once
 
+#include <array>
+
 #include "autonomy/motor/diff_drive.hh"
 #include "autonomy/motor/motor.hh"
+#include "platform/analog_input/adc.hh"
+#include "platform/analog_input/analog_input.hh"
 #include "platform/digital_input/pulse_counter.hh"
 #include "platform/digital_output/pulse_generator.hh"
 #include "platform/pwm_output/pwm_output.hh"
@@ -54,6 +58,17 @@ class Robot {
   const aut::Motor motor_left;
   const aut::Motor motor_right;
   const aut::DiffDrive diff_drive;
+
+  // Analog
+  // ADC3 16-bit @ 100MHz, 1.5 + 8.5 cycles, 1024 samples, 2 channels
+  // Scan frequency: 4.88kHz
+
+ private:
+  const ADC adc_3;
+
+ public:
+  const AnalogInput analog_input_3_0;
+  const AnalogInput analog_input_3_1;
 
   /**
    * @brief Gets the instance of this singleton class.

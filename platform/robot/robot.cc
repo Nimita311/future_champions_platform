@@ -5,6 +5,7 @@
 
 // Defined in main.c
 extern TIM_HandleTypeDef htim3;
+extern ADC_HandleTypeDef hadc3;
 
 namespace fcp::platform {
 
@@ -24,6 +25,9 @@ Robot::Robot()
       pwm_right_reverse{&htim3, TIM_CHANNEL_4},
       motor_left{pwm_left_drive, pwm_left_reverse},
       motor_right{pwm_right_drive, pwm_right_reverse},
-      diff_drive{motor_left, motor_right} {}
+      diff_drive{motor_left, motor_right},
+      adc_3{&hadc3},
+      analog_input_3_0{adc_3.make_analog_input(0)},
+      analog_input_3_1{adc_3.make_analog_input(1)} {}
 
 }  // namespace fcp::platform
